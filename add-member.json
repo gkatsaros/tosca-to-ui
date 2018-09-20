@@ -1,0 +1,153 @@
+{
+  "tosca_definitions_version": "cloudify_dsl_1_3",
+  "description": "This blueprint is adding a new Infoblox member to an Infoblox grid and configures the master accordingly.",
+  "imports": [
+    "http://www.getcloudify.org/spec/cloudify/4.3/types.yaml",
+    "plugin:cloudify-utilities-plugin"
+  ],
+  "inputs": {
+    "infoblox_public_endpoint": {
+      "default": "35.178.32.158"
+    },
+    "infoblox_member_ip": {
+      "default": "172.31.31.31"
+    },
+    "infoblox_member_gateway": {
+      "default": "172.31.16.1"
+    },
+    "infoblox_member_name": {
+      "default": "new_infoblox_member"
+    }
+  },
+  "node_templates": {
+    "grid_member_config": {
+      "type": "cloudify.rest.Requests",
+      "properties": {
+        "hosts": [
+          {
+            "concat": [
+              "admin",
+              ":",
+              "Rus2206!",
+              "@",
+              {
+                "get_input": "infoblox_public_endpoint"
+              }
+            ]
+          }
+        ],
+        "port": 443,
+        "ssl": true,
+        "verify": false
+      },
+      "interfaces": {
+        "cloudify.interfaces.lifecycle": {
+          "create": {
+            "implementation": "rest.cloudify_rest.tasks.execute",
+            "inputs": {
+              "template_file": "templates/create-member.yaml",
+              "params": {
+                "ADDRESS": {
+                  "get_input": "infoblox_member_ip"
+                },
+                "GATEWAY": {
+                  "get_input": "infoblox_member_gateway"
+                },
+                "SUBNET": "255.255.240.0"
+              }
+            }
+          },
+          "configure": {
+            "implementation": "rest.cloudify_rest.tasks.execute",
+            "inputs": {
+              "template_file": "templates/pre-provision.yaml",
+              "params": {
+                "MEMBER": {
+                  "get_attribute": [
+                    "SELF",
+                    "result_propeties",
+                    "member_ref"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "member_instance": {
+      "type": "cloudify.nodes.DeploymentProxy",
+      "properties": {
+        "resource_config": {
+          "blueprint": {
+            "id": "infoblox-member",
+            "blueprint_archive": "https://github.com/gkatsaros/infoblox-member-add/archive/3.0.zip",
+            "main_file_name": "deploy-infoblox-node.yaml"
+          },
+          "deployment": {
+            "id": {
+              "get_input": "infoblox_member_name"
+            },
+            "inputs": {
+              "private_ip_address": {
+                "get_input": "infoblox_member_ip"
+              },
+              "token": {
+                "get_attribute": [
+                  "grid_member_config",
+                  "result_propeties",
+                  "token_result",
+                  "pnode_tokens",
+                  0,
+                  "token"
+                ]
+              },
+              "aws_user_data": {
+                "remote_console_enabled": "y",
+                "default_admin_password": "Rus2206!",
+                "temp_license": "grid dns nios IB-V820",
+                "token": {
+                  "get_attribute": [
+                    "grid_member_config",
+                    "result_propeties",
+                    "token_result",
+                    "pnode_tokens",
+                    0,
+                    "token"
+                  ]
+                }
+              }
+            },
+            "outputs": {
+              "ip": "ip"
+            }
+          }
+        }
+      },
+      "relationships": [
+        {
+          "type": "cloudify.relationships.depends_on",
+          "target": "grid_member_config"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "member_ref": {
+      "value": {
+        "get_attribute": [
+          "grid_member_config",
+          "result_propeties"
+        ]
+      }
+    },
+    "member_ip": {
+      "value": {
+        "get_attribute": [
+          "member_instance",
+          "ip"
+        ]
+      }
+    }
+  }
+}
