@@ -1,11 +1,21 @@
 var http = require("http");
 const yaml = require('js-yaml');
 const fs = require('fs');
+var extract = require('extract-zip')
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
- 
+
+
+// Download and unzip archive
+var URL = 'http://github.com/gkatsaros/vCPE-demo/archive/1.0.zip';
+console.log(URL);
+
+
+
+
+
 // Running Server Details.
 var server = app.listen(8082, function () {
   var host = server.address().address
@@ -22,7 +32,7 @@ app.get('/add-pe', function (req, res) {
   
  
   try {
-    const config = yaml.safeLoad(fs.readFileSync('openstack-uc1-PE-Server.yaml', 'utf8'));
+    const config = yaml.safeLoad(fs.readFileSync('openstack-uc1-client-vCPE.yaml', 'utf8'));
     
     //const indentedJson = JSON.stringify(config, null, 4);
     //console.log(indentedJson);
@@ -59,7 +69,7 @@ var inputs=req.body;
 delete inputs['deployment-name'];
 
 var bodyString = new Object();
-bodyString.blueprint_id = 'uc1-PE';
+bodyString.blueprint_id = 'uc1-Client';
 bodyString.inputs = inputs;
 
 
@@ -79,19 +89,22 @@ var options = {
 
 //  http.request(options, callback).write(bodyString)
 
+//PUT REQUEST START
 var req = http.request(options, function(ress) {
   console.log('Status: ' + ress.statusCode);
   console.log('Headers: ' + JSON.stringify(ress.headers));
   ress.setEncoding('utf8');
+
+  //PUT REQUEST SUCCESSULL
   ress.on('data', function (body) {
     console.log('PUT Body: ' + body);
    
    var post_data = new Object();
    post_data.deployment_id = deployment_id;
    post_data.workflow_id = 'install';
+   post_data.queue = 'true';
 
    var post_options = {
- 
    hostname: '10.52.235.3',
    port: 80,
    path: "api/v3.1/executions?_include=id",
@@ -100,22 +113,41 @@ var req = http.request(options, function(ress) {
    "Authorization": "Basic Z3JlZzoxbmZlcm5vJA==",
    "Tenant":"default_tenant",
    "Content-Type": "application/json"}
-
    };
 
 
    console.log(post_data);
    console.log(post_options);
+
+
+   //wait some secs
+   console.log('waiting 5 sec');
+
+   let counter = 0;
+   function foo() {
+    console.log(`foo ${counter}`);
+    counter ++;
+    if (counter < 10) {
+     "use strict";
+     setTimeout(foo, 1000);
+     }
+   }
+   foo();
   
-   var reqq = http.request(post_options, function(resss) {
-   
+   console.log('Back to execution');  
+ 
+   // POST REQUEST START
+   var reqq = http.request(post_options, function(resss) {   
    resss.setEncoding('utf8');
+
+   //POST REQUEST OUTPUT
    resss.on('data', function (bbody) {
    console.log('POST Body: ' + bbody);
 
-   res.send("This is the request reply");
+   res.send("This is the submit request reply");
 
    });
+
  
  });
 
