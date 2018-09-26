@@ -1,0 +1,33 @@
+Example app listening at :::8082 Port
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+{ [Error: ENOENT: no such file or directory, open 'deployments.txt']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'deployments.txt' }
+after line
+CPE
+{"blueprint_id":"uc1-Client","inputs":{"PE_subnet_cidr":"10.10.10.0/24","PE_host":"DTC_PE_demo","client_subnet_cidr":"12.12.12.0/24"}}
+uc1-Client
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+[]
+after line
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+[ '{"id": "CPE"}' ]
+after line
+{"id": "3648b271-50a6-4305-bef8-78362d4d781a"}
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+{ [Error: ENOENT: no such file or directory, open 'deployments.txt']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'deployments.txt' }
+after line

@@ -1,0 +1,1 @@
+{"blueprint_id":"uc1-Client","inputs":{"PE_subnet_cidr":"10.10.10.0/24","PE_host":"DTC_PE_demo","client_subnet_cidr":"12.12.12.0/24"}}

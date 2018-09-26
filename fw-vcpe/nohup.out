@@ -1,0 +1,54 @@
+Example app listening at :::8081 Port
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+{ [Error: ENOENT: no such file or directory, open 'deployments.txt']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'deployments.txt' }
+after line
+CPE2
+{"blueprint_id":"uc1-Client","inputs":{"PE_subnet_cidr":"10.10.10.0/24","PE_host":"DTC_PE_demo","client_subnet_cidr":"13.13.13.0/24","firewall_subnet_cidr":"11.11.11.0/24"}}
+uc1-Client
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+[ '{"message": "Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']", "error_code": "unknown_deployment_input_error", "server_traceback": "Traceback (most recent call last):\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 97, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\\", line 78, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 137, in wrapper\\n    response = f(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v3_1/deployments.py\\", line 68, in put\\n    request_dict)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\\", line 732, in create_deployment\\n    raise manager_exceptions.UnknownDeploymentInputError(str(e))\\nUnknownDeploymentInputError: Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']\\n"}' ]
+after line
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+[ '{"message": "Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']", "error_code": "unknown_deployment_input_error", "server_traceback": "Traceback (most recent call last):\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 97, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\\", line 78, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 137, in wrapper\\n    response = f(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v3_1/deployments.py\\", line 68, in put\\n    request_dict)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\\", line 732, in create_deployment\\n    raise manager_exceptions.UnknownDeploymentInputError(str(e))\\nUnknownDeploymentInputError: Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']\\n"}' ]
+after line
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+[ '{"message": "Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']", "error_code": "unknown_deployment_input_error", "server_traceback": "Traceback (most recent call last):\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 97, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\\", line 78, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 137, in wrapper\\n    response = f(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v3_1/deployments.py\\", line 68, in put\\n    request_dict)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\\", line 732, in create_deployment\\n    raise manager_exceptions.UnknownDeploymentInputError(str(e))\\nUnknownDeploymentInputError: Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']\\n"}' ]
+after line
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+[ '{"message": "Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']", "error_code": "unknown_deployment_input_error", "server_traceback": "Traceback (most recent call last):\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 97, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\\", line 78, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 137, in wrapper\\n    response = f(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v3_1/deployments.py\\", line 68, in put\\n    request_dict)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\\", line 732, in create_deployment\\n    raise manager_exceptions.UnknownDeploymentInputError(str(e))\\nUnknownDeploymentInputError: Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']\\n"}' ]
+after line
+{"message": "Requested `Deployment` with ID `CPE2` was not found", "error_code": "not_found_error", "server_traceback": "Traceback (most recent call last):\n  File \"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\", line 97, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\", line 78, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\", line 137, in wrapper\n    response = f(*args, **kwargs)\n  File \"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v1/executions.py\", line 121, in post\n    dry_run=dry_run, bypass_maintenance=bypass_maintenance)\n  File \"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\", line 429, in execute_workflow\n    deployment = self.sm.get(models.Deployment, deployment_id)\n  File \"/opt/manager/env/lib/python2.7/site-packages/manager_rest/storage/storage_manager.py\", line 475, in get\n    .format(model_class.__name__, element_id)\nNotFoundError: Requested `Deployment` with ID `CPE2` was not found\n"}
+Example app listening at :::8081 Port
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+[ '{"message": "Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']", "error_code": "unknown_deployment_input_error", "server_traceback": "Traceback (most recent call last):\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 97, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\\", line 78, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 137, in wrapper\\n    response = f(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v3_1/deployments.py\\", line 68, in put\\n    request_dict)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\\", line 732, in create_deployment\\n    raise manager_exceptions.UnknownDeploymentInputError(str(e))\\nUnknownDeploymentInputError: Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']\\n"}' ]
+CPE2
+{"blueprint_id":"uc2-Client","inputs":{"PE_subnet_cidr":"10.10.10.0/24","PE_host":"DTC_PE_demo","client_subnet_cidr":"13.13.13.0/24","firewall_subnet_cidr":"11.11.11.0/24"}}
+uc1-Client
+PE_subnet_cidr
+PE_host
+client_subnet_cidr
+firewall_subnet_cidr
+[ '{"message": "Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']", "error_code": "unknown_deployment_input_error", "server_traceback": "Traceback (most recent call last):\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 97, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/security/authorization.py\\", line 78, in wrapper\\n    return func(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/rest_decorators.py\\", line 137, in wrapper\\n    response = f(*args, **kwargs)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/rest/resources_v3_1/deployments.py\\", line 68, in put\\n    request_dict)\\n  File \\"/opt/manager/env/lib/python2.7/site-packages/manager_rest/resource_manager.py\\", line 732, in create_deployment\\n    raise manager_exceptions.UnknownDeploymentInputError(str(e))\\nUnknownDeploymentInputError: Unknown inputs [u\'firewall_subnet_cidr\'] specified - expected inputs: [\'PE_host\', \'client_subnet_cidr\', \'PE_subnet_cidr\']\\n"}' ]
+{"id": "10ba90f0-c9af-4610-8aec-4ced65ab86d2"}
